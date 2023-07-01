@@ -6,6 +6,7 @@
         body {
             background-image: url('https://w.wallha.com/ws/14/dG5jZ97V.jpg');
             background-repeat: no-repeat;
+            background-position: center center;
             background-size: cover;
             min-height: 100vh;
         }
@@ -18,11 +19,26 @@
         }
     </style>
 {% endblock %}
-    <h3>вы уверены что хотите удалить эту запись от автора {{ book.author }}?</h3>
+    <h3 class="head_text pt-5 pb-5" style="text-align: center">Вы уверены что хотите удалить
+        запись от автора{{ book.author }}?</h3>
     <form action="" method="post">
         {% csrf_token %}
-        <button>Да</button>
-    </form>
+        <div class="d-flex justify-content-center">
+            <div class="card mb-3 text-center "
+                 style="background-color: white; border-radius: 5%; width: 600px;">
+                <div class="card-body">
+                    <button type="submit" style="width: 300px; font-size: 30px"
+                            class="btn btm-input btn-primary btn-lg py-2 my-3 text-uppercase rounded-0"
+                            data-bs-dismiss="modal">
+                        Да
+                    </button>
 
-    <a href="{% url "records_view" %}"><button>Нет</button></a>
+                    <div class="card-link pt-3 pt-4 pb-3"
+                         style="border-top: 3px solid darkblue; background-color: white">
+                        <a href="{% url "records_view" %}" style="text-decoration: none; padding-left: 150px; padding-top: 10px; padding-bottom: 10px; padding-right: 150px; font-size: 30px; background-color: red;">Неть</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 {% endblock %}
