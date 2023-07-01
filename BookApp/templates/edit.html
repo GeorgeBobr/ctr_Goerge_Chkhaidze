@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Редактирование{% endblock %}
+<h1>Update Task</h1>
+
+{% block content %}
+    {% block styles %}
+        <style>
+            body {
+                background-image: url('https://wallpaperaccess.com/full/932308.jpg');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                min-height: 100vh;
+            }
+        </style>
+{% endblock %}
+    <strong>{% include "partial/bookform.html" with button_text="Изменить" %}</strong>
+{% endblock %}
