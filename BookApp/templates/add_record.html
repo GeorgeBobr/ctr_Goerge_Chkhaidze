@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <style>
+        .container {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <p><label for="{{ field.id_for_label }}">{{ field.label }}</label></p>
+            {% for error in field.errors %}
+                <p class="form-error">{{ error }}</p>
+            {% endfor %}
+            <p>{{ field }}</p>
+        {% endfor %}
+
+        <br/>
+        <input type="submit" value="Добавить"/>
+    </form>
+
+    <br/>
+    <a href="{% url 'records_view' %}">На главную</a>
+</div>
+{% endblock %}

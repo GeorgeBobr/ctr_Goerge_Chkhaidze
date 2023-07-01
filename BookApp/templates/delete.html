@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% block styles %}
+    <style>
+        body {
+            background-image: url('https://w.wallha.com/ws/14/dG5jZ97V.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            margin: 10px;
+        }
+    </style>
+{% endblock %}
+    <h3>вы уверены что хотите удалить эту запись от автора {{ book.author }}?</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button>Да</button>
+    </form>
+
+    <a href="{% url "records_view" %}"><button>Нет</button></a>
+{% endblock %}
